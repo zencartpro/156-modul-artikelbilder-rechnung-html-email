@@ -1,0 +1,112 @@
+Artikelbilder in Rechnung und HTML Emails 1.4 für Zen Cart 1.5.6 deutsch
+
+Mit dieser Erweiterung werden Artikelbilder der bestellten Artikel in folgenden Bereichen angezeigt:
+Admin Rechnung
+Admin Lieferschein
+Admin Bestellungdetailansicht
+Frontend: Bestelldetails in der Bestellhistorie
+Bestellbestätigungsemail (nur HTML)
+
+Die Größe der Bilder kann unter Konfiguration > Bilder eingestellt werden.
+
+Installation:
+
+Für den Einbau dieses Moduls sollten Sie über folgende Werkzeuge verfügen:
+
+1) Ein guter Texteditor
+Damit ist nicht das in Windows enthaltene Notepad oder Microsoft Word gemeint.
+Sie benötigen einen Texteditor, der utf-8 versteht und auch im Format utf-8 ohne BOM abspeichern kann.
+Meine Empfehlung: UltraEdit (kostenlose 30 Tage Testversion verfügbar)
+Ebenfalls gut geeignet ist der kostenlose Texteditor Notepad++
+
+2) Ein Tool zum Vergleichen von Dateien
+Bei der Installation dieses Moduls ist es erforderlich, dass Sie den Inhalt einiger Ihrer bestehenden Zen Cart Dateien mit dem Inhalt der neuen Moduldateien vergleichen und die Änderungen zusammenführen ("mergen").
+Meine Empfehlung: BeyondCompare (kostenlose 30 Tage Testversion verfügbar)
+Ebenfalls gut geeignet ist das kostenlose Programm WinMerge
+
+Empfehlung:
+Dieses Modul erst in einem Testsystem einbauen und dort konfigurieren/testen und endgültig an die eigenen Wünsche anpassen. Erst dann in einem Liveshop einsetzen! Sichern Sie unbedingt alle Dateien Ihres Shops per FTP und sichern Sie die Datenbank mit phpMyAdmin oder anderen geeigneten Tools!
+
+1)
+Im Ordner SQL die install.sql mit einem Texteditor öffnen und den Inhalt ins Eingabefeld unter Tools > SQL Patches einfügen und absenden.
+Dadurch werden die Konfigurationseinträge für die Bildergrößen hinzugefügt
+
+2)
+Geänderte Dateien des Moduls einspielen:
+Im Ordner GEAENDERTE DATEIEN dieses Downloads den Ordner DEINADMIN auf den Namen Ihres admin Verzeichnisses umbenennen.
+Alle Ordner namens DEINTEMPLATE auf das im Shop aktive Template umbenennen (z.B. responsive_classic)
+Dann die Ordner/Dateien in der vorgegebenen Struktur ins Zen Cart Verzeichnis hochladen.
+Achtung: Dabei werden bestehende Dateien überschrieben!
+Daher:
+Sollten Sie bereits einmal Änderungen an diesen Dateien vorgenommen haben (z.B. durch den Einbau anderer Erweiterungen), dann laden Sie diese Dateien keinesfalls einfach so hoch.
+Stattdessen vergleichen Sie alle Dateien im Ordner GEAENDERTE DATEIEN mit den entsprechenden Dateien in Ihrem Shop und nehmen Sie die Änderungen manuell per WinMerge oder BeyondCompare vor.
+Dann spielen Sie die geänderten Dateien in der gezeigten Struktur ein.
+
+
+
+Englische Original Readme:
+
+
+======================================
+Product Images on Invoice, Email, etc
+by JT Website Design
+Updated by POTTERYHOUSE
+Version 1.1
+zc 1.5
+
+This plugin adds product images to your invoices, packing slips, admin order details page, customer order history, and confirmation emails.
+
+Support thread:
+http://www.zen-cart.com/showthread.php?201242-Product-Images-on-Invoice-Email-etc-Support-Thread
+
+
+======================================
+INSTALLATION
+
+1) BACKUP your ZenCart site.
+
+2) Rename /admin/ to your ZenCart admin URL.
+
+3) Rename /includes/templates/YOUR_TEMPLATE/ to your template name.
+
+4) If you have previously modified any of the included files, then MERGE changes with your files.
+
+5) Upload all files to your ZenCart directory.
+
+6) Run the install sql found in the "InvoiceImage.sql" file.
+
+======================================
+USAGE
+
+The images will auto-magically appear on your invoices, etc.
+
+Image sizes are controlled by setting located in:
+Admin > Configuration > Images > 'Image - On Invoice Height'
+Admin > Configuration > Images > 'Image - On Invoice Width'
+
+======================================
+CHANGELOG
+
+10/17/12 - v1.0 Initial Release
+
+10/22/2013 - Added new variables to control image size, freeing the small setting for other uses.
+	-	IMAGE_ON_INVOICE_IMAGE_HEIGHT
+	-	IMAGE_ON_INVOICE_IMAGE_WIDTH
+	-	Added SQL file (InvoiceImage.sql), the file contains the command to add the new variables to the configuration file.
+
+======================================
+DISCLAIMER
+
+Copyright (C) 2012  JT Website Design
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details: http://www.gnu.org/licenses/
+
+Security, backups, and proper site maintenance/testing are the sole responsibility of the site owner.
+
+--------------------------------------
+
+Special thanks to:
+The Zen Cart team for making the most powerful open-source cart available on the web.
+Zen Cart forums for pointing me in the right direction for the code required in this mod.
