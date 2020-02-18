@@ -1,4 +1,4 @@
-Artikelbilder in Rechnung und HTML Emails 1.4 für Zen Cart 1.5.6 deutsch
+Artikelbilder in Rechnung und HTML Emails 1.5 für Zen Cart 1.5.6 deutsch
 
 Mit dieser Erweiterung werden Artikelbilder der bestellten Artikel in folgenden Bereichen angezeigt:
 Admin Rechnung
@@ -10,6 +10,12 @@ Bestellbestätigungsemail (nur HTML)
 Die Größe der Bilder kann unter Konfiguration > Bilder eingestellt werden.
 
 Installation:
+
+WICHTIG:
+Bevor Sie Ihren 1.5.6 Shop weiter modifizieren, stellen Sie erst sicher, dass Sie die neueste 1.5.6 Version verwenden.
+Das ist derzeit 1.5.6e
+Sollten Sie noch 1.5.6d oer 1.5.6c verwenden, aktualisieren Sie Ihren Shop zunächst auf 1.5.6e, bevor Sie dieses Modul installieren.
+Die mitgelieferten GEAENDERTEN DATEIEN dieses Moduls sind auf dem Stand von 1.5.6e
 
 Für den Einbau dieses Moduls sollten Sie über folgende Werkzeuge verfügen:
 
