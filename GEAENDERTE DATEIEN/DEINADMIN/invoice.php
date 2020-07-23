@@ -4,7 +4,7 @@
  * @copyright Copyright 2003-2020 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: invoice.php mit Artikelbildern 2020-02-18 09:05:16Z webchills $
+ * @version $Id: invoice.php mit Artikelbildern 2020-07-23 16:05:16Z webchills $
  */
 require('includes/application_top.php');
 
@@ -151,8 +151,7 @@ if ($order->billing['street_address'] != $order->delivery['street_address']) {
                       for ($j = 0; $j < $k; $j++) {
                         ?>
                       <li>
-                        <small>
-                          <i>
+                        <small><i>
                                 <?php echo $order->products[$i]['attributes'][$j]['option'] . ': ' . nl2br(zen_output_string_protected($order->products[$i]['attributes'][$j]['value'])); ?>
                                 <?php
                                 if ($order->products[$i]['attributes'][$j]['price'] != '0') {
@@ -162,8 +161,7 @@ if ($order->billing['street_address'] != $order->delivery['street_address']) {
                                   echo TEXT_INFO_ATTRIBUTE_FREE;
                                 }
                                 ?>
-                          </i>
-                        </small>
+                          </i></small>
                       </li>
                       <?php
                     }
@@ -173,29 +171,19 @@ if ($order->billing['street_address'] != $order->delivery['street_address']) {
                 }
                 ?>
               </td>
-              <td class="dataTableContent">
-                <?php echo $order->products[$i]['model']; ?>
+              <td class="dataTableContent"><?php echo $order->products[$i]['model']; ?></td>
+              <td class="dataTableContent text-right"><?php echo zen_display_tax_value($order->products[$i]['tax']); ?>%</td>
+              <td class="dataTableContent text-right">
+                <b><?php echo $currencies->format($order->products[$i]['final_price'], true, $order->info['currency'], $order->info['currency_value']) . ($order->products[$i]['onetime_charges'] != 0 ? '<br />' . $currencies->format($order->products[$i]['onetime_charges'], true, $order->info['currency'], $order->info['currency_value']) : ''); ?></b>
               </td>
               <td class="dataTableContent text-right">
-                <?php echo zen_display_tax_value($order->products[$i]['tax']); ?>%
+                <b><?php echo $currencies->format(zen_add_tax($order->products[$i]['final_price'], $order->products[$i]['tax']), true, $order->info['currency'], $order->info['currency_value']) . ($order->products[$i]['onetime_charges'] != 0 ? '<br />' . $currencies->format(zen_add_tax($order->products[$i]['onetime_charges'], $order->products[$i]['tax']), true, $order->info['currency'], $order->info['currency_value']) : ''); ?></b>
               </td>
               <td class="dataTableContent text-right">
-                <strong><?php echo $currencies->format($order->products[$i]['final_price'], true, $order->info['currency'], $order->info['currency_value']) . ($order->products[$i]['onetime_charges'] != 0 ? '<br />' . $currencies->format($order->products[$i]['onetime_charges'], true, $order->info['currency'], $order->info['currency_value']) : ''); ?></strong>
-              </td>
-              <td class="dataTableContent text-right">
-                <strong><?php echo $currencies->format(zen_add_tax($order->products[$i]['final_price'], $order->products[$i]['tax']), true, $order->info['currency'], $order->info['currency_value']) . ($order->products[$i]['onetime_charges'] != 0 ? '<br />' . $currencies->format(zen_add_tax($order->products[$i]['onetime_charges'], $order->products[$i]['tax']), true, $order->info['currency'], $order->info['currency_value']) : ''); ?></strong>
-              </td>
-              <td class="dataTableContent text-right">
-                <strong><?php echo $currencies->format(zen_round($order->products[$i]['final_price'], $decimals) * $order->products[$i]['qty'], true, $order->info['currency'], $order->info['currency_value']) . ($order->products[$i]['onetime_charges'] != 0 ? '<br />' . $currencies->format($order->products[$i]['onetime_charges'], true, $order->info['currency'], $order->info['currency_value']) : ''); ?></strong>
+                <b><?php echo $currencies->format(zen_round($order->products[$i]['final_price'], $decimals) * $order->products[$i]['qty'], true, $order->info['currency'], $order->info['currency_value']) . ($order->products[$i]['onetime_charges'] != 0 ? '<br />' . $currencies->format($order->products[$i]['onetime_charges'], true, $order->info['currency'], $order->info['currency_value']) : ''); ?></b>
               </td>
               <td class="dataTableContent text-right" valign="top">
-                <strong>
-                  <?php echo $priceIncTax; ?>
-                  <?php if ($order->products[$i]['onetime_charges'] != 0) {
-                      echo '<br />' . $currencies->format(zen_add_tax($order->products[$i]['onetime_charges'], $order->products[$i]['tax']), true, $order->info['currency'], $order->info['currency_value']);
-                  }
-                  ?>
-                </strong>
+                <b><?php echo $priceIncTax . ($order->products[$i]['onetime_charges'] != 0 ? '<br />' . $currencies->format(zen_add_tax($order->products[$i]['onetime_charges'], $order->products[$i]['tax']), true, $order->info['currency'], $order->info['currency_value']) : ''); ?></b>
               </td>
             </tr>
             <?php
